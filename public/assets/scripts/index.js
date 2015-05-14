@@ -33,7 +33,6 @@ $(document).ready(function() {
         if (operand == "equals") {
             thisEquals(oldOperand);
             console.log("=");
-            operand = undefined;
         } else if (operand == "clear") {
             firstNum = undefined;
             secondNum = undefined;
@@ -44,24 +43,26 @@ $(document).ready(function() {
         }
 
         function thisEquals(oldOperand) {
-            if (oldOperand == "add") {
-                console.log(firstNum + "+" + secondNum);
-                firstNum = firstNum + secondNum;
-                $('.display').text(firstNum);
-            } else if (oldOperand == "sub") {
-                firstNum = firstNum - secondNum;
-                console.log(firstNum + "-" + secondNum);
-                $('.display').text(firstNum);
-            } else if (oldOperand == "mult") {
-                firstNum = firstNum * secondNum;
-                console.log(firstNum + "*" + secondNum);
-                $('.display').text(firstNum);
-            } else if (oldOperand == "div") {
-                console.log(firstNum + "/" + secondNum);
-                firstNum = firstNum / secondNum;
-                $('.display').text(firstNum);
+            if (firstNum && secondNum) {
+                if (oldOperand == "add") {
+                    console.log(firstNum + "+" + secondNum);
+                    firstNum = firstNum + secondNum;
+                    $('.display').text(firstNum);
+                } else if (oldOperand == "sub") {
+                    firstNum = firstNum - secondNum;
+                    console.log(firstNum + "-" + secondNum);
+                    $('.display').text(firstNum);
+                } else if (oldOperand == "mult") {
+                    firstNum = firstNum * secondNum;
+                    console.log(firstNum + "*" + secondNum);
+                    $('.display').text(firstNum);
+                } else if (oldOperand == "div") {
+                    console.log(firstNum + "/" + secondNum);
+                    firstNum = firstNum / secondNum;
+                    $('.display').text(firstNum);
+                }
+                secondNum = undefined;
             }
-            secondNum = undefined;
         }
     });
 });
