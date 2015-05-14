@@ -33,11 +33,14 @@ $(document).ready(function() {
         if (operand == "equals") {
             thisEquals(oldOperand);
             console.log("=");
+            operand = undefined;
         } else if (operand == "clear") {
             firstNum = undefined;
             secondNum = undefined;
             operand = undefined;
             $('.display').text(0);
+        } else if (operand) {
+            thisEquals(oldOperand);
         }
 
         function thisEquals(oldOperand) {
@@ -58,7 +61,6 @@ $(document).ready(function() {
                 firstNum = firstNum / secondNum;
                 $('.display').text(firstNum);
             }
-            operand = undefined;
             secondNum = undefined;
         }
     });
